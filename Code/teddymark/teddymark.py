@@ -48,7 +48,7 @@ TOKENS = {
     "}}": "/script",
     "<<": "style",
     ">>": "/style",
-    "//": "link",
+    "///": "link",
     
     ###############
     '<::>': 'audio',
@@ -57,15 +57,7 @@ TOKENS = {
 
 }
 
-
-execptions = [
-    "@", 
-    "--"
-    "???",
-    "<<",
-    ">>",
-    "//"
-]
+memory = {}
 
 t = []
 
@@ -76,14 +68,17 @@ class inter:
 
     def __init__(self, line):
         self.line = line
-        self.alfabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z', '_', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'ñ', 'ó', 'ô', 'õ', 'â', 'ã', 'á', 'à', 'ú', 'í', 'ì', 'ù', 'é', 'è', 'ç']
+        self.alfabet : list[str][26] = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z', '_', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'ñ', 'ó', 'ô', 'õ', 'â', 'ã', 'á', 'à', 'ú', 'í', 'ì', 'ù', 'é', 'è', 'ç']
         self.interprer()
 
     def interprer(self):
         self.tokens = []
         for k,v in TOKENS.items():
             self.tokens.append(k)
-        self.ex()
+        try:
+            self.ex()
+        except ValueError:
+            self.line = ''
 
     def openEnd(self, t, op):
         if op:
@@ -97,13 +92,12 @@ class inter:
         l = l1.replace(t, self.openEnd(TOKENS[t], op))
         after = line[len(l1):]
         if t in after: 
-            after = self.replace(after, t, not(op)) if not(t in execptions) else self.replace(after, t, op) 
+            after = self.replace(after, t, not(op)) 
         return l+after
 
-    def paramter(self):
-        pass
-
     def ex(self):
+        if self.line == None:
+            raise ValueError('')
         for token in self.tokens:
             if token in self.line:
                 self.line = self.replace(self.line, token, True)
