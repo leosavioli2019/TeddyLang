@@ -12,4 +12,4 @@ class get:
         return self.language
 
     def getMark(self):
-        return self.mark       
+        return self.mark

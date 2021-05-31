@@ -1,4 +1,5 @@
 import util 
+import converter
 
 class lexical:
     
@@ -16,8 +17,10 @@ class lexical:
     
     def inter(self):
         for key, value in self.keys.items():
-            string, lists = util.replace(self.code, key, value, True)         
-            self.code = string
+            for c in range(0, len(self.list)):
+                string, lists = util.replace(self.list[c], key, value, True)
+                self.list[c] = string         
+        self.list_str()
         self.list = self.code.split('\n')
         self.indentation()
         
@@ -33,3 +36,9 @@ class lexical:
             for c in range(0, len(self.list)):
                 self.list[c] = self.list[c][indent:]
             self.list_str()
+        self.elseC()
+            
+    def elseC(self):
+        e = converter.elsif(self.list)
+        self.list = e.code
+        self.list_str()

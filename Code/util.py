@@ -9,7 +9,7 @@ def findAll(word,line,l=[]):
         end.append(line.find(word))
         return end if not(word in after) else findAll(word,after,end)
     
-def replace(string, char1, char2, chan=False):
+def replace(string : str, char1 : str, char2 : str, chan=False) -> str:
     result = string 
     changes = []
     for c in range(0, len(string)):

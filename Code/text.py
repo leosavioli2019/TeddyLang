@@ -1,7 +1,7 @@
 class text:
     
     def __init__(self):
-        pass
+        self.__version__ = 1.0
     
     def imperative(self):
         print("TeddyMark, By Leonard Fuzzo Savioli")
@@ -11,7 +11,5 @@ class text:
         
     def help(self):
         print("©Teddy Lang")
-        print("     --server [start a server]")
-        print("     --terminal [run only in the terminal]")
-        print("     --help [help]")
-        print("     --imp [imperative mode]")
+        print("     --version")
+        print("     build [type - file - exe]")
