@@ -41,6 +41,8 @@ You can see that we use to put a TeddyMark tag we use the command TPRINT, and yo
 
 And the output will be this:
 
+---
+
 # Range #
 
 - 1
@@ -52,6 +54,8 @@ And the output will be this:
 - 7
 - 8
 - 9
+
+---
 
 ## How to run? ##
 
