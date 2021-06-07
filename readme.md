@@ -5,6 +5,8 @@
 Is a very simple language to do back-end of applications did 
 using [TeddyMark](https://github.com/leosavioli2019/TeddyMark) tags and HTML tags based on the syntax of python and php, but faster.
 
+![](Images/favicon.ico)
+
 ## Example ##
 
 The example below show the numbers 0 to 9.
