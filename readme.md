@@ -59,3 +59,4 @@ And the output will be this:
 
 ## How to run? ##
 
+![](Images/teddylang.gif)
